@@ -7,9 +7,9 @@ metadata:
     app: {{ .Values.appName }}
 spec:
   ports:
-  - name: web
-    port: {{ .Values.port }}
-    targetPort: 8080
+  - protocol: TCP
+    port: 80
+    targetPort: {{ .Values.port }}
     nodePort: 31000
   selector:
     app: {{ .Values.appName }}
