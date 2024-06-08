@@ -1,20 +1,26 @@
-# Use Node.js 18 image as base
-FROM node:20-alpine
+# Đầu tiên chúng ta sẽ có một stage chỉ để build trước image
+FROM node:20-alpine AS build
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json .
+COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
 COPY . .
 
-# Expose the port that the app will run on
+RUN npm run build
+
+# Tiếp theo ở bước triển khai chỉ cần kế thừa lại những files được build ở bước trên và cài đặt một số dependencies cần thiết cho việc chạy app
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+
+COPY package*.json ./
+RUN npm install --only=production
+
 EXPOSE 5173
 
-# Define the command to run the app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
