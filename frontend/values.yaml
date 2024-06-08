@@ -2,7 +2,7 @@ appName: web
 
 port: 80
 
-namespace: default
+namespace: web
 
 configmap:
   name: myhelmapp-configmap-v1
