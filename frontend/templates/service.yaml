@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - name: web
-    port: 81
+    port: {{ .Values.port }}
     targetPort: 8080
     nodePort: 31000
   selector:
