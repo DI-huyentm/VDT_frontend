@@ -10,5 +10,5 @@ configmap:
     CUSTOM_HEADER: 'This app was deployed with helm!'
 
 image:
-  name: hantmei/vdt_midterm-nginx_server
+  name: baofci/latest
   tag: latest
