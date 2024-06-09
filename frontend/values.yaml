@@ -10,5 +10,5 @@ configmap:
     CUSTOM_HEADER: 'This app was deployed with helm!'
 
 image:
-  name: baofci/latest
+  name: baofci/reactjs
   tag: latest
