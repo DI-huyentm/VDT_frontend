@@ -2,7 +2,7 @@ appName: web
 
 port: 5173
 
-namespace: web
+namespace: web1
 
 configmap:
   name: myhelmapp-configmap-v1
