@@ -56,8 +56,6 @@ jobs:
           git add values.yaml
           git commit -m "Update image version to ${{ env.TAG }}"
 
-          git config --unset-all http.https://github.com/.extraheader
-
           git remote -v
 
           git push --set-upstream origin api-version-${{ env.TAG }}
