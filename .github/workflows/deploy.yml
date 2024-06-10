@@ -43,8 +43,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git clone https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/VDT_frontend
-          cd VDT_frontend
+          git clone https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/web_values
+          cd web_values
 
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'bachdtm169@gmail.com'
