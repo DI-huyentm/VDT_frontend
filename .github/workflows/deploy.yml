@@ -60,6 +60,7 @@ jobs:
 
           git remote -v
 
-          git push -u origin api-version-${{ env.TAG }}
+          git push --set-upstream origin api-version-${{ env.TAG }}
+          git push --set-upstream https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/web_values api-version-${{ env.TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.WEB_TOKEN }}
