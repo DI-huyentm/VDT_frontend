@@ -7,6 +7,8 @@ on:
 
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +47,7 @@ jobs:
       - name: Commit and push changes
         run: |
           cd .
-          git config --global user.name 'bao'
+          git config --global user.name 'BaoICTHustK67'
           git config --global user.email 'bachdtm169@gmail.com'
           git add values.yaml
           git commit -m "Update image version to ${{ env.TAG }}"
