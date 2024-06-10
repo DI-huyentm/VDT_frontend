@@ -53,4 +53,4 @@ jobs:
           git commit -m "Update image version to ${{ env.TAG }}"
           git push -u origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WEB_TOKEN }}
