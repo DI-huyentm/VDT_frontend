@@ -39,18 +39,27 @@ jobs:
           repository: BaoICTHustK67/web_values
           token: ${{ secrets.GITHUB_TOKEN }}
           path: .
-
-      - name: Update image version in values.yaml
-        run: |
-          sed -i "s/^  tag: .*/  tag: ${{ env.TAG }}/" ./values.yaml
+          
 
       - name: Commit and push changes
         run: |
-          cd .
+          git clone https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/VDT_frontend
+          cd VDT_frontend
+
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'bachdtm169@gmail.com'
+
+          git checkout -b api-version-${{ env.TAG }}
+
+          sed -i "s/^  tag: .*/  tag: ${{ env.TAG }}/" values.yaml
+
           git add values.yaml
           git commit -m "Update image version to ${{ env.TAG }}"
-          git push -u origin main
+
+          git config --unset-all http.https://github.com/.extraheader
+
+          git remote -v
+
+          git push -u origin api-version-${{ env.TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.WEB_TOKEN }}
