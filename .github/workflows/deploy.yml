@@ -49,8 +49,6 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'bachdtm169@gmail.com'
 
-          git checkout -b api-version-${{ env.TAG }}
-
           sed -i "s/^  tag: .*/  tag: ${{ env.TAG }}/" values.yaml
 
           git add values.yaml
@@ -58,7 +56,7 @@ jobs:
 
           git remote -v
 
-          git push --set-upstream origin api-version-${{ env.TAG }}
-          git push --set-upstream https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/web_values api-version-${{ env.TAG }}
+          git push --set-upstream origin main
+          git push --set-upstream https://user:$GITHUB_TOKEN@github.com/BaoICTHustK67/web_values main
         env:
           GITHUB_TOKEN: ${{ secrets.WEB_TOKEN }}
