@@ -47,10 +47,10 @@ jobs:
       - name: Commit and push changes
         run: |
           cd .
-          git config --global user.name 'BaoICTHustK67'
+          git config --global user.name 'GitHub Actions'
           git config --global user.email 'bachdtm169@gmail.com'
           git add values.yaml
           git commit -m "Update image version to ${{ env.TAG }}"
-          git push origin main
+          git push -u origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
