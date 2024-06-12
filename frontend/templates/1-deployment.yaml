@@ -20,8 +20,12 @@ spec:
       containers:
       - name: mycontainer
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
         ports:
-        - containerPort: {{ .Values.port }}
+          - name: http
+            containerPort: {{ .Values.port }}
+          - name: http-metrics
+            containerPort: {{ .Values.port }}
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
